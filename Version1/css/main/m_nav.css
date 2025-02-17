@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    overflow-x: auto;
+    min-height: 100vh;
+    min-width: 320px;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "navbar navbar"
+    "main main";
+    overflow-x: hidden;
+}
+
+nav {
+    height: 5.5rem;
+    width: 100%;
+    top: 0;
+    position: sticky;
+    grid-area: navbar;
+    background-color: #202020;
+    padding: 0.5em;
+    display: flex;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    z-index: 100;
+}
+
+nav .m-skf-img-s {
+    display: block;
+}
+
+nav .m-skf-img {
+    width: 65px;
+    margin-left: 10px;
+    margin-right: 10px;
+    grid-column: 0;
+    height: auto;
+    overflow: hidden;
+}
+
+nav .m-ttle-page {
+    display: block;
+    text-align: left;
+    flex: 1;
+}
+
+nav .m-ttle-page p {
+    width: 340px;
+    margin-left: 10px;
+    height: auto;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+nav .m-usr-page {
+    display: block;
+    text-align: right;
+    flex: 0;
+}
+
+nav .m-usr-page p {
+    width: 340px;
+    margin-right: 20px;
+    height: auto;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+main {
+    grid-area: main;
+    background-color: #dadada;
+}

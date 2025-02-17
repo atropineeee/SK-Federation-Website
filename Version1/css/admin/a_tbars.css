@@ -1,0 +1,120 @@
+.m-tbar-side-container {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    right: -20px;
+    width: 300px;
+    height: 50px;
+    background-color: white;
+    margin-top: 260px;
+    border-radius: 10px;
+}
+
+.m-tbar-side-button {
+    display: flex;
+    align-items: center;
+    padding: 10px 8px;
+    height: 100%;
+    width: 25px;
+    cursor: pointer;
+}
+
+.m-tbar-side-selection {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.m-tbar-side-cbtlst {
+    display: flex;
+    width: 25px;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    cursor: pointer;
+    color: rgba(0, 0, 0, 1);
+    transition: color 0.4s;
+}
+
+.m-tbar-side-cbtlst:hover {
+    color: rgb(110, 110, 110);
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(255px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(255px);
+    }
+}
+
+@keyframes xtateLeft {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes xtateRight {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+.m-tbar-side-container.open {
+    display: flex;
+    animation: slideLeft 0.5s ease-in-out forwards;
+}
+
+.m-tbar-side-container {
+    display: flex;
+    animation: slideRight 0.5s ease-in-out forwards;
+}
+
+.m-tbar-side-button i{
+    animation: xtateLeft 0.5s ease-in-out forwards;
+}
+
+.m-tbar-side-button i.open {
+    animation: xtateRight 0.5s ease-in-out forwards;
+}
+
+.m-tbar-side-ttip {
+    position: absolute;
+    visibility: hidden;
+    text-align: center;
+    width: 120px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    top: 60px;
+    transform: translateX(-55%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+}
+
+.m-tbar-side-cbtlst i:hover .m-tbar-side-ttip {
+    visibility: visible;
+    opacity: 1;
+}

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: grid;
+    overflow-x: auto;
+    min-height: 100vh;
+    min-width: 480px;
+    grid-template-columns: 430px 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "navbar navbar"
+    "sidebar main";
+    overflow: hidden;
+}
+
+nav {
+    height: 5.5rem;
+    width: 100%;
+    top: 0;
+    position: sticky;
+    grid-area: navbar;
+    background-color: #202020;
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    z-index: 100;
+}
+
+nav .l-skf-img-s {
+    display: block;
+}
+
+nav .l-skf-img {
+    width: 65px;
+    margin-left: 10px;
+    margin-right: 10px;
+    grid-column: 0;
+    height: auto;
+    overflow: hidden;
+}
+
+nav .l-ttle-page {
+    display: block;
+}
+
+nav .l-ttle-page p {
+    width: 340px;
+    margin-left: 10px;
+    margin-right: 20px;
+    grid-column: 1;
+    height: auto;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+aside {
+    height: calc(100vh - 5rem);
+    top: 5rem;
+    position: sticky;
+    align-self: start;
+    grid-area: sidebar;
+}
+
+main {
+    grid-area: main;
+    background-color: #dadada;
+}
+

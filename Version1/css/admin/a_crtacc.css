@@ -1,0 +1,177 @@
+.m-add-user-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    top: 0;
+}
+
+.m-add-user-form {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    width: 400px;
+    height: 265px;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 2px 3px 4px rgba(5, 5, 5, 0.5);
+    right: 20px;
+    margin-top: 220px;
+    cursor: auto;
+}
+
+.m-add-user-txt {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.m-add-user-err {
+    width: 100%;
+    height: 12px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 12px;
+    color: red;
+}
+
+.m-add-user-tb-rows {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.m-add-user-input {
+    width: 100%;
+    height: 35px;
+    margin: 5px 5px;
+    padding: 8px;
+    border: 0.5px solid black;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: inset 2px 3px 4px rgba(5, 5, 5, 0.5);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+.m-add-user-role-slct {
+    width: 100%;
+    height: 35px;
+    margin: 5px 5px;
+    padding: 8px;
+    border: 0.5px solid black;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: inset 2px 3px 4px rgba(5, 5, 5, 0.5);
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+#fixed-email {
+    background-color: rgb(226, 226, 226);
+}
+
+.m-add-user-crtbtn {
+    width: 120px;
+    height: 35px;
+    padding: 8px 10px;
+    font-weight: 600;
+    background-color: rgba(80, 200, 80, 0.7);
+    border-radius: 5px;
+    border: 0.5px solid black;
+    margin: 10px 10px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.m-add-user-cnlbtn {
+    width: 120px;
+    height: 35px;
+    padding: 8px 10px;
+    font-weight: 600;
+    background-color: rgba(200, 80, 80, 0.7);
+    border-radius: 5px;
+    border: 0.5px solid black;
+    margin: 10px 10px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.m-add-user-crtbtn:hover {
+    background-color: rgba(80, 200, 80, 1);
+}
+
+
+.m-add-user-cnlbtn:hover {
+    background-color: rgba(200, 80, 80, 1);
+}
+
+.hidden {
+    display: none;
+}
+
+.open {
+    display: block;
+}
+
+@keyframes SlideUserLeft {
+    0% {
+        transform: translateX(455px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes SlideUserRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(455px);
+    }
+}
+
+@keyframes SlideWDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(22px);
+    }
+}
+
+.m-add-user-form.open {
+    display: flex;
+    animation: SlideUserLeft 0.5s ease-in-out forwards;
+}
+
+.m-add-user-form {
+    display: flex;
+    animation: SlideUserRight 0.5s ease-in-out forwards;
+}
+
+.m-add-user-warning-pnl {
+    position: absolute;
+    display: flex;
+    z-index: 100;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.m-add-user-warning-pnl p {
+    text-align: center;
+    background-color: rgba(245, 145, 145, 1);
+    width: 220px;
+    padding: 8px 5px;
+    border-radius: 10px;
+    margin-top: -10px;
+
+    animation: SlideWDown 0.4s ease-in-out forwards;
+}
