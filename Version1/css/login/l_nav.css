@@ -17,7 +17,6 @@ body {
     min-height: 100vh;
     min-width: 480px;
     grid-template-columns: 430px 1fr;
-    grid-template-rows: auto 1fr;
     grid-template-areas: 
     "navbar navbar"
     "sidebar main";

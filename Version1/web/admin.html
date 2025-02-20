@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="/css/admin/a_tbar.css">
     <link rel="stylesheet" href="/css/admin/a_tbars.css">
     <link rel="stylesheet" href="/css/admin/a_crtacc.css">
+    <link rel="stylesheet" href="/css/admin/a_crtevt.css">
+    <link rel="stylesheet" href="/css/admin/a_mngevt.css">
+    <link rel="stylesheet" href="/css/admin/a_msngevt.css">
+    <link rel="stylesheet" href="/css/admin/a_msngsevt.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/skicon32x.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -123,6 +127,115 @@
                 </div>
             </div>           
         </div>
+
+        <div class="m-mng-event-container">
+            <div class="m-mng-event-pnl-ttx">
+                <p class="m-mng-event-txt">Manage Events</p>
+            </div>
+            <div class="m-mng-event-cnt">
+                <div class="m-mng-event-pnl">
+                </div>
+            </div>
+        </div>
+
+        <div class="m-s-mng-event-ctn">
+            <div class="m-s-mng-event-cpl">
+                <div class="m-s-event-txt-holder">
+                    <p class="m-s-event-nm-txt"></p>
+                    <p class="m-s-event-id-txt"></p>
+                </div>
+                <div class="m-s-event-btn-holder">
+                    <div class="m-s-event-add-ptcp-btn">
+                        <p class="m-s-event-add-ptcp-txt">Add Participant</p>
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="m-s-mng-event-pnl-hldr">
+                <div class="m-s-mng-event-pnl-sb">
+                    <p class="m-s-mng-evnt-txt1">Name</p>
+                    <p class="m-s-mng-evnt-txt2">Occupation</p>
+                    <p class="m-s-mng-evnt-txt3">District</p>
+                    <p class="m-s-mng-evnt-txt4">Role</p>
+                    <p class="m-s-mng-evnt-txt5">Attended</p>
+                    <p class="m-s-mng-evnt-txt6">Status</p>
+                </div>
+                <div class="m-s-mng-event-pnl">
+                </div>
+            </div>
+        </div>
+
+        <div class="m-s-mng-event-s-container">
+            <div class="m-s-mng-event-s-pnl">
+                <div class="m-s-mng-event-s-form">
+                    <p class="m-s-mng-event-s-txt">Add Participant</p>
+                    <p class="m-s-mng-event-s-err">‎</p>
+
+                    <div class="m-s-mng-event-rows">
+                        <select class="m-s-mng-event-slct" id="select-title">
+                            <option value="" disabled selected hidden>Select Title</option>
+                            <option value="Mr">Mr.</option>
+                            <option value="Ms">Ms.</option>
+                        </select>
+                    </div>
+
+                    <div class="m-s-mng-event-rows">
+                        <input class="m-s-mng-event-input" type="text" id="participant-name" placeholder="Participant's Name">
+                    </div>
+
+                    
+                    <div class="m-s-mng-event-rows">
+                        <input class="m-s-mng-event-input" type="text" id="participant-position" placeholder="Participant's Position">
+                    </div>
+
+                    <div class="m-s-mng-event-rows">
+                        <select class="m-s-mng-event-slct" id="select-district">
+                            <option value="" disabled selected hidden>Select District</option>
+                            <option value="district1">District 1</option>
+                            <option value="district2">District 2</option>
+                            <option value="district3">District 3</option>
+                        </select>
+
+                        <select class="m-s-mng-event-slct" id="select-vip">
+                            <option value="" disabled selected hidden>Select Category</option>
+                            <option value="vvip">VVIP</option>
+                            <option value="vip">VIP</option>
+                            <option value="host">Host</option>
+                            <option value="attendee">Attendee</option>
+                        </select>
+                    </div>
+
+                    <div class="m-s-mng-event-rows">
+                        <button class="m-s-mng-event-cnlbtn" type="submit">Cancel</button>
+                        <button class="m-s-mng-event-addbtn" type="submit">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-crt-event-container">
+            <div class="m-crt-event-pnl">
+                <div class="m-crt-event-form-cnt">
+                    <div class="m-crt-event-btn">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="m-crt-event-form">
+                        <p class="m-crt-event-txt">Create Event</p>
+                        <p class="m-crt-event-err">‎</p>
+                        <div class="m-crt-event-tb-rows">
+                            <input class="m-crt-event-input" type="text" id="event-name" placeholder="Event Name">
+                        </div>
+                        <div class="m-crt-event-tb-rows">
+                            <textarea class="m-crt-event-details" id="event-details" placeholder="Event Details" cols="40" rows="5"></textarea>
+                        </div>
+                        <div class="m-crt-event-tb-rows">
+                            <input class="m-crt-event-input" type="date" id="event-date">
+                            <input class="m-crt-event-input" type="time" id="event-time">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script type="module" src="/src/admin/a_nav.js"></script>
@@ -132,6 +245,11 @@
 
     <!-- Shared Scripts -->
     <script type="module" src="/src/shared/s_lgt.js"></script>
+    <script type="module" src="/src/shared/s_cevt/s_cevt.js"></script>
+    <script type="module" src="/src/shared/s_tbfnc/s_tbarfnc.js"></script>
+    <script type="module" src="/src/shared/s_mngevt/s_sycevt.js"></script>
+    <script type="module" src="/src/shared/s_mngevt/s_addptcp.js"></script>
+    <script type="module" src="/src/shared/s_mngevt/s_sycptcp.js"></script>
 </body>
 
 </html>

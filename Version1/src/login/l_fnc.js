@@ -35,8 +35,6 @@ async function sl() {
             const rlx = userData.role;
 
             if (ux === emx && px === pwx) {
-                console.log("User Found!");
-
                 if (rlx == "admin") {
                     signInWithEmailAndPassword(auth, ux, px)
                     .then(() => {
