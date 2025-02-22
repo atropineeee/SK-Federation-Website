@@ -41,11 +41,6 @@ async function addfnc() {
     PTCCT = s_ptpct.value;
     EVTID = s_evtid.textContent;
 
-    if (PTCTL == "") { 
-        s_errid.textContent = "Select Participant's Title";
-        return;
-    } 
-
     if (PTCNM == "") {
         s_errid.textContent = "Enter Participant's Name";
         return;
@@ -56,6 +51,7 @@ async function addfnc() {
     const querySnapshot = await getDocs(qr);
 
     if (!querySnapshot.empty) {
+        s_errid.textContent = "‎";
         const docRef = querySnapshot.docs[0].ref;
         const docSnap = await getDoc(docRef);
         const existingParticipants = docSnap.data().participants || [];

@@ -100,34 +100,6 @@
             </div>
         </div>
 
-        <div class="m-add-user-container">
-            <div class="m-add-user-form">
-                <div class="m-add-user-warning-pnl">
-                </div>
-                <p class="m-add-user-txt">Add User</p>
-                <p class="m-add-user-err"></p>
-                <div class="m-add-user-tb-rows">
-                    <input class="m-add-user-input" type="text" id="first-name" name="first-name" placeholder="First Name" required>
-                    <input class="m-add-user-input" type="text" id="last-name" name="last-name" placeholder="Last Name" required>
-                </div>
-                <div class="m-add-user-tb-rows">
-                    <input class="m-add-user-input" type="email" id="email" name="email" placeholder="Email" required>
-                    <input class="m-add-user-input" type="email" id="fixed-email" name="fixed-email" placeholder="@gmail.com" readonly>
-                </div>
-                <div class="m-add-user-tb-rows">
-                    <select class="m-add-user-role-slct" id="select-role">
-                        <option value="" disabled selected hidden>Select Role</option>
-                        <option value="staff">Staff</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
-                <div class="m-add-user-tb-rows">
-                    <button class="m-add-user-cnlbtn" type="submit">Cancel</button>
-                    <button class="m-add-user-crtbtn" type="submit">Create</button>
-                </div>
-            </div>           
-        </div>
-
         <div class="m-mng-event-container">
             <div class="m-mng-event-pnl-ttx">
                 <p class="m-mng-event-txt">Manage Events</p>
@@ -152,16 +124,32 @@
                 </div>
             </div>
             <div class="m-s-mng-event-pnl-hldr">
-                <div class="m-s-mng-event-pnl-sb">
-                    <p class="m-s-mng-evnt-txt1">Name</p>
-                    <p class="m-s-mng-evnt-txt2">Occupation</p>
-                    <p class="m-s-mng-evnt-txt3">District</p>
-                    <p class="m-s-mng-evnt-txt4">Role</p>
-                    <p class="m-s-mng-evnt-txt5">Attended</p>
-                    <p class="m-s-mng-evnt-txt6">Status</p>
-                </div>
-                <div class="m-s-mng-event-pnl">
-                </div>
+                <table class="m-s-mng-event-tbl">
+                    <thead>
+                        <tr>
+                            <th>Participant's Name</th>
+                            <th>Occupation</th>
+                            <th>District</th>
+                            <th>Role</th>
+                            <th>Attended</th>
+                            <th>Marker</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>null</td>
+                            <td>null</td>
+                            <td>null</td>
+                            <td>null</td>
+                            <td>null</td>
+                            <td>
+                                <div class="m-s-mng-event-attd-btn">
+                                    <i class="fa-solid fa-user-check"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 
@@ -198,10 +186,10 @@
 
                         <select class="m-s-mng-event-slct" id="select-vip">
                             <option value="" disabled selected hidden>Select Category</option>
-                            <option value="vvip">VVIP</option>
-                            <option value="vip">VIP</option>
-                            <option value="host">Host</option>
-                            <option value="attendee">Attendee</option>
+                            <option value="VVIP">VVIP</option>
+                            <option value="VP">VIP</option>
+                            <option value="Host">Host</option>
+                            <option value="Attendee">Attendee</option>
                         </select>
                     </div>
 
@@ -235,6 +223,34 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="m-add-user-container">
+            <div class="m-add-user-form">
+                <div class="m-add-user-warning-pnl">
+                </div>
+                <p class="m-add-user-txt">Add User</p>
+                <p class="m-add-user-err"></p>
+                <div class="m-add-user-tb-rows">
+                    <input class="m-add-user-input" type="text" id="first-name" name="first-name" placeholder="First Name" required>
+                    <input class="m-add-user-input" type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+                </div>
+                <div class="m-add-user-tb-rows">
+                    <input class="m-add-user-input" type="email" id="email" name="email" placeholder="Email" required>
+                    <input class="m-add-user-input" type="email" id="fixed-email" name="fixed-email" placeholder="@gmail.com" readonly>
+                </div>
+                <div class="m-add-user-tb-rows">
+                    <select class="m-add-user-role-slct" id="select-role">
+                        <option value="" disabled selected hidden>Select Role</option>
+                        <option value="staff">Staff</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div class="m-add-user-tb-rows">
+                    <button class="m-add-user-cnlbtn" type="submit">Cancel</button>
+                    <button class="m-add-user-crtbtn" type="submit">Create</button>
+                </div>
+            </div>           
         </div>
     </main>
 

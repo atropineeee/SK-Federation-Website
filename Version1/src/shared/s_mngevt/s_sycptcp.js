@@ -1,66 +1,98 @@
 import { db, auth, createUserWithEmailAndPassword, fetchSignInMethodsForEmail, signInWithEmailAndPassword, signOut } from "../../firebase/cli.mjs";
 import { getDatabase, rtdQuery, ref, child, get, set, push, update, remove, onChildAdded, onValue, orderByChild, limitToLast } from "../../firebase/cli.mjs";
-import { getFirestore, collection, where, fsQuery, doc, addDoc, getDocs, getDoc, setDoc, updateDoc, deleteDoc, arrayUnion } from "../../firebase/cli.mjs";
+import { getFirestore, collection, where, fsQuery, doc, addDoc, getDocs, getDoc, setDoc, updateDoc, deleteDoc, arrayUnion, onSnapshot } from "../../firebase/cli.mjs";
 
 export async function sncptpc() {
-    const eventPanel = document.querySelector('.m-s-mng-event-pnl');
-
-    eventPanel.innerHTML = "";
-
+    const tableBody = document.querySelector('.m-s-mng-event-tbl tbody');
+    tableBody.innerHTML = "";
+    
     const s_evtid = document.querySelector('.m-s-event-id-txt');
     let EVTID = s_evtid.textContent;
+    
     const cref = collection(db, "events");
     const qr = fsQuery(cref, where('id', "==", EVTID));
     const querySnapshot = await getDocs(qr);
 
     if (!querySnapshot.empty) {
+        let counter = 1;
         querySnapshot.forEach((doc) => {
             const data = doc.data();
             const participants = data.participants || [];
             participants.forEach((participant) => {
-                const participantPanel = document.createElement("div");
-                participantPanel.classList.add("m-s-mng-event-ptcp-pnl");
+                const row = document.createElement('tr');
+                if (participant.attended == "Not Yet") {
+                    row.innerHTML = `
+                        <td>${counter + ". " + participant.name}</td>
+                        <td>${participant.occupation}</td>
+                        <td>${participant.district}</td>
+                        <td>${participant.role}</td>
+                        <td>${participant.attended}</td>
+                        <td>
+                            <div class="m-s-mng-event-attd-btn" id="${participant.id}">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                        </td>
+                    `;
+                } else {
+                    row.innerHTML = `
+                        <td>${participant.title + ". " + participant.name}</td>
+                        <td>${participant.occupation}</td>
+                        <td>${participant.district}</td>
+                        <td>${participant.role}</td>
+                        <td>${participant.attended}</td>
+                        <td>
+                            <div class="m-s-mng-event-attd-done">
+                                <i class="fa-solid fa-user-check"></i>
+                            </div>
+                        </td>
+                    `;
+                }
 
-                const name = document.createElement("p");
-                name.classList.add("m-s-mng-event-ptcp-nm");
-                name.textContent = participant.title + ". " + participant.name;
-
-                const occupation = document.createElement("p");
-                occupation.classList.add("m-s-mng-event-ptcp-oc");
-                occupation.textContent = participant.occupation;
-
-                const district = document.createElement("p");
-                district.classList.add("m-s-mng-event-ptcp-dc");
-                district.textContent = participant.district;
-
-                const role = document.createElement("p");
-                role.classList.add("m-s-mng-event-ptcp-rl");
-                role.textContent = participant.role;
-
-                const attd = document.createElement("p");
-                attd.classList.add("m-s-mng-event-ptcp-attd");
-                attd.textContent = participant.attended;
-
-                const attendedButton = document.createElement("div");
-                attendedButton.classList.add("m-s-mng-event-attd-btn");
-                attendedButton.id = participant.id;
-
-                const attendedIcon = document.createElement("i");
-                attendedIcon.classList.add("fa-solid", "fa-user-check");
-
-                attendedButton.appendChild(attendedIcon);
-
-                participantPanel.appendChild(name);
-                participantPanel.appendChild(occupation);
-                participantPanel.appendChild(district);
-                participantPanel.appendChild(role);
-                participantPanel.appendChild(attd);
-                participantPanel.appendChild(attendedButton);
-
-                eventPanel.appendChild(participantPanel);
+                tableBody.appendChild(row);
+                counter++;
             });
         });
     }
 }
 
-sncptpc();
+document.body.addEventListener("click", function(event) {
+    const btn = event.target.closest(".m-s-mng-event-attd-btn");
+    if (btn) {
+        const sid = btn.getAttribute("id");
+        markAttendance(sid);
+    }
+});
+
+async function markAttendance(id) {
+    const s_evtid = document.querySelector('.m-s-event-id-txt');
+    let EVTID = s_evtid.textContent.trim();
+    const cref = collection(db, "events");
+    const qr = fsQuery(cref, where("id", "==", EVTID));
+    const querySnapshot = await getDocs(qr);
+
+    if (!querySnapshot.empty) {
+        const eventDocRef = querySnapshot.docs[0].ref;
+        const eventDocSnap = await getDoc(eventDocRef);
+
+        if (eventDocSnap.exists()) {
+            let eventData = eventDocSnap.data();
+            let participants = eventData.participants || [];
+
+            const updatedParticipants = participants.map(participant => {
+                if (participant.id === id) {
+                    return { ...participant, attended: "Present" };
+                }
+                return participant;
+            });
+            await updateDoc(eventDocRef, { participants: updatedParticipants });
+        }
+    }
+}
+
+const updateEV = collection(db, "events");
+
+const unsubscribe = onSnapshot(updateEV, (querySnapshot) => {
+    if (!querySnapshot.empty) {
+        sncptpc();
+    }
+});

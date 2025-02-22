@@ -128,15 +128,17 @@ const s_crtbtn = document.querySelector('.m-crt-event-btn');
 
 function xcd () {
     if (EVNMG && EVDLG && EVTMG && EVDTG) {
+        console.log("e");
         if (!s_crtbtn.classList.contains('open')) {
             s_crtbtn.classList.remove('close');
             s_crtbtn.classList.toggle('open');
         }
     } else if (s_crtbtn.classList.contains('open')) {
+        console.log("f");
         s_crtbtn.classList.toggle('close');
         s_crtbtn.classList.remove('open');
     } else if (s_crtbtn.classList.contains('close')) {
-
+        console.log("g");
     }
 }
 

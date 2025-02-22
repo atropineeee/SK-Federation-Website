@@ -83,6 +83,7 @@ nav .m-usr-page p {
 }
 
 main {
+    position: relative;
     grid-area: main;
     background-color: #dadada;
 }
